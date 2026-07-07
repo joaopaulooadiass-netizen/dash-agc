@@ -18,7 +18,7 @@ const montserrat = Montserrat({
 })
 
 export const metadata: Metadata = {
-  title: 'Dashboard — Copy que Vende',
+  title: 'Dashboard — Atomic Growth',
   description: 'Análise de performance Meta Ads',
 }
 

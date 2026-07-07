@@ -406,7 +406,7 @@ function BlocoContas({ contaId }: { contaId?: string }) {
           </div>
           <div style={{ flex: 1 }}>
             <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.82rem', fontWeight: 600, color: 'var(--color-text-primary)', margin: 0 }}>
-              Copy que Vende
+              Atomic Growth
             </p>
             <p style={{ fontFamily: 'monospace', fontSize: '0.68rem', color: 'var(--color-text-muted)', margin: '2px 0 0' }}>
               {contaId}

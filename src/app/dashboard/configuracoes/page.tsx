@@ -1,6 +1,6 @@
 import { TelaConfiguracoes } from './TelaConfiguracoes'
 
-export const metadata = { title: 'Configurações — Dashboard Copy que Vende' }
+export const metadata = { title: 'Configurações — Dashboard Atomic Growth' }
 
 export default function Page() {
   // Conta real do env (server-side) — o ID da conta não é segredo (aparece em

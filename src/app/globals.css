@@ -11,6 +11,11 @@
   --color-gold-deep:  #A16F25; /* dourado escuro — texto sobre claro */
   --color-gold-bright:#D9B165; /* dourado claro — hover, marquee */
 
+  /* Aliases legados (identidade anterior) — mantidos para compatibilidade */
+  --color-lado-oculto:     #071527; /* → navy (era azul-noite) */
+  --color-ponto-conversao: #CC9B49; /* → dourado (era vermelho CTA) */
+  --color-revelacao:       #FDFAF3; /* → creme (era branco) */
+
   /* Superfícies de fundo (dark por padrão) */
   --color-bg-primary:     #071527; /* tela principal */
   --color-bg-secondary:   #0C1D33; /* sidebar, nav */

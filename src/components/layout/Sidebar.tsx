@@ -40,15 +40,23 @@ export function Sidebar() {
       flexShrink: 0,
     }}>
       {/* Logo */}
-      <div style={{ padding: '1rem 1.25rem 1.25rem', borderBottom: '1px solid var(--color-border-subtle)' }}>
+      <div style={{ padding: '1rem 1.25rem 1.25rem', borderBottom: '1px solid var(--color-border-subtle)', display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
         <Image
-          src="/brand/logo.svg"
-          alt="Copy que Vende"
-          width={172}
-          height={80}
-          style={{ width: '100%', height: 'auto', maxHeight: '80px', objectFit: 'contain', objectPosition: 'left' }}
+          src="/brand/logo.png"
+          alt="Atomic Growth"
+          width={40}
+          height={40}
+          style={{ width: '40px', height: '40px', objectFit: 'contain', flexShrink: 0 }}
           priority
         />
+        <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.15 }}>
+          <span style={{ fontFamily: 'var(--font-display)', fontSize: '1.05rem', fontWeight: 600, color: 'var(--color-text-primary)', letterSpacing: '0.01em' }}>
+            Atomic Growth
+          </span>
+          <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.62rem', fontWeight: 600, color: 'var(--color-accent)', textTransform: 'uppercase', letterSpacing: '0.18em' }}>
+            Dashboard
+          </span>
+        </div>
       </div>
 
       {/* Navegação principal */}

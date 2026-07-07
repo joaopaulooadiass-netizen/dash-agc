@@ -594,7 +594,7 @@ const slice = useMemo(() => {
       {/* Título */}
       <div>
         <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '2rem', fontWeight: 700, color: 'var(--color-text-primary)', letterSpacing: '0.03em' }}>VISAO DIARIA</h1>
-        <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.78rem', color: 'var(--color-text-muted)', marginTop: '0.2rem' }}>Copy que Vende</p>
+        <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.78rem', color: 'var(--color-text-muted)', marginTop: '0.2rem' }}>Atomic Growth</p>
       </div>
 
       {/* Filtro de funil */}
