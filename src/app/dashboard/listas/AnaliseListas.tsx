@@ -481,7 +481,7 @@ export function AnaliseListas({ listasIniciais = [] }: { listasIniciais?: ListaI
   }
   const td: React.CSSProperties = {
     padding: '0.45rem 0.75rem', fontFamily: 'var(--font-body)', fontSize: '0.78rem',
-    color: 'var(--color-text-primary)', borderBottom: '1px solid rgba(255,255,255,0.03)', whiteSpace: 'nowrap',
+    color: 'var(--color-text-primary)', borderBottom: '1px solid var(--color-hairline)', whiteSpace: 'nowrap',
   }
 
   return (
@@ -554,7 +554,7 @@ export function AnaliseListas({ listasIniciais = [] }: { listasIniciais?: ListaI
             <button
               onClick={executarCruzamento}
               disabled={selecionadas.size < 2 && listas.length >= 2 && selecionadas.size > 0}
-              style={{ width: '100%', padding: '0.5rem', backgroundColor: (selecionadas.size === 1) ? 'var(--color-bg-tertiary)' : 'var(--color-ponto-conversao)', border: 'none', borderRadius: 'var(--radius-md)', fontFamily: 'var(--font-body)', fontSize: '0.76rem', color: 'white', cursor: selecionadas.size === 1 ? 'not-allowed' : 'pointer', fontWeight: 700, opacity: selecionadas.size === 1 ? 0.5 : 1 }}
+              style={{ width: '100%', padding: '0.5rem', backgroundColor: (selecionadas.size === 1) ? 'var(--color-bg-tertiary)' : 'var(--color-ponto-conversao)', border: 'none', borderRadius: 'var(--radius-md)', fontFamily: 'var(--font-body)', fontSize: '0.76rem', color: (selecionadas.size === 1) ? 'var(--color-text-muted)' : 'white', cursor: selecionadas.size === 1 ? 'not-allowed' : 'pointer', fontWeight: 700, opacity: selecionadas.size === 1 ? 0.5 : 1 }}
             >
               Cruzar {selecionadas.size > 0 ? `${selecionadas.size}` : 'todas as'} lista{selecionadas.size !== 1 ? 's' : ''} →
             </button>
@@ -621,7 +621,7 @@ export function AnaliseListas({ listasIniciais = [] }: { listasIniciais?: ListaI
                       })}</tr>
                     </thead>
                     <tbody>{listaAtiva.rows.slice(0, 300).map((row, i) => (
-                      <tr key={i} style={{ backgroundColor: i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.015)' }}>
+                      <tr key={i} style={{ backgroundColor: i % 2 === 0 ? 'transparent' : 'var(--color-hairline)' }}>
                         {listaAtiva.headers.map(h => <td key={h} style={td}>{row[h] ?? ''}</td>)}
                       </tr>
                     ))}</tbody>
@@ -696,7 +696,7 @@ export function AnaliseListas({ listasIniciais = [] }: { listasIniciais?: ListaI
                         const listasAtivas = listas.filter(l => l.tipo !== 'meta_ads')
                         return (
                           <>
-                            <tr key={linha.chave} onClick={() => setLinhaSel(expandido ? null : linha.chave)} style={{ borderBottom: '1px solid rgba(255,255,255,0.03)', cursor: 'pointer', backgroundColor: expandido ? 'rgba(204,155,73,0.05)' : 'transparent' }}>
+                            <tr key={linha.chave} onClick={() => setLinhaSel(expandido ? null : linha.chave)} style={{ borderBottom: '1px solid var(--color-hairline)', cursor: 'pointer', backgroundColor: expandido ? 'rgba(204,155,73,0.05)' : 'transparent' }}>
                               <td style={{ ...td, fontWeight: 500 }}>{linha.chave}</td>
                               <td style={td}>
                                 <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.7rem', fontWeight: 700, color: linha.status.cor, backgroundColor: `${linha.status.cor}22`, padding: '0.12rem 0.5rem', borderRadius: 'var(--radius-pill)' }}>
@@ -721,13 +721,13 @@ export function AnaliseListas({ listasIniciais = [] }: { listasIniciais?: ListaI
                             {expandido && (
                               <tr key={`${linha.chave}-exp`}>
                                 <td colSpan={6} style={{ padding: 0 }}>
-                                  <div style={{ backgroundColor: 'rgba(255,255,255,0.025)', padding: '0.85rem 1.25rem', borderBottom: '1px solid var(--color-border-subtle)' }}>
+                                  <div style={{ backgroundColor: 'var(--color-overlay-soft)', padding: '0.85rem 1.25rem', borderBottom: '1px solid var(--color-border-subtle)' }}>
                                     <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '0.65rem' }}>
                                       {listasAtivas.filter(l => linha.presenca[l.id]).map(l => (
                                         <div key={l.id} style={{ backgroundColor: 'var(--color-bg-card)', border: `1px solid ${TIPOS[l.tipo].cor}33`, borderRadius: 'var(--radius-md)', padding: '0.7rem 0.85rem' }}>
                                           <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.6rem', fontWeight: 700, color: TIPOS[l.tipo].cor, textTransform: 'uppercase', letterSpacing: '0.07em', marginBottom: '0.5rem' }}>{l.nome}</p>
                                           {Object.entries(linha.dados[l.id] ?? {}).filter(([, v]) => v).slice(0, 10).map(([k, v]) => (
-                                            <div key={k} style={{ display: 'flex', gap: '0.5rem', paddingBlock: '0.15rem', borderBottom: '1px solid rgba(255,255,255,0.03)' }}>
+                                            <div key={k} style={{ display: 'flex', gap: '0.5rem', paddingBlock: '0.15rem', borderBottom: '1px solid var(--color-hairline)' }}>
                                               <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.65rem', color: 'var(--color-text-muted)', flex: '0 0 120px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{k}</span>
                                               <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.65rem', color: 'var(--color-text-primary)', fontWeight: 500, flex: 1, overflow: 'hidden', textOverflow: 'ellipsis' }}>{v}</span>
                                             </div>
@@ -949,7 +949,7 @@ export function AnaliseListas({ listasIniciais = [] }: { listasIniciais?: ListaI
                   </thead>
                   <tbody>
                     {dadosCPA.map((row, i) => (
-                      <tr key={i} style={{ borderBottom: '1px solid rgba(255,255,255,0.03)', backgroundColor: i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.015)' }}>
+                      <tr key={i} style={{ borderBottom: '1px solid var(--color-hairline)', backgroundColor: i % 2 === 0 ? 'transparent' : 'var(--color-hairline)' }}>
                         <td style={{ ...td, fontWeight: 600, maxWidth: '260px', overflow: 'hidden', textOverflow: 'ellipsis' }}>{row.valor}</td>
                         <td style={{ ...td, textAlign: 'right' }}>{row.leads}</td>
                         <td style={{ ...td, textAlign: 'right', fontWeight: 700, color: row.compradores > 0 ? 'var(--color-signal-green)' : 'var(--color-text-muted)' }}>{row.compradores || '—'}</td>

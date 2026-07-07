@@ -86,7 +86,7 @@ function BubbleMap({ dados, metrica, modo, tooltip, onHover }: BubbleMapProps) {
 
   function getFill(sigla: string) {
     const d = porSigla[sigla]
-    if (!d) return 'rgba(255,255,255,0.05)'
+    if (!d) return 'var(--color-hairline)'
     const val = d[metrica]
     const ratio = maxVal > 0 ? val / maxVal : 0
     const opacity = inv ? (0.06 + (1 - ratio) * 0.94) : (0.06 + ratio * 0.94)
@@ -95,9 +95,9 @@ function BubbleMap({ dados, metrica, modo, tooltip, onHover }: BubbleMapProps) {
 
   function getFillMundo(numericId: string) {
     const alpha2 = ISO_NUM_TO_ALPHA2[numericId]
-    if (!alpha2) return 'rgba(255,255,255,0.04)'
+    if (!alpha2) return 'var(--color-hairline)'
     const d = porSigla[alpha2]
-    if (!d) return 'rgba(255,255,255,0.04)'
+    if (!d) return 'var(--color-hairline)'
     const val = d[metrica]
     const ratio = maxVal > 0 ? val / maxVal : 0
     const opacity = inv ? (0.06 + (1 - ratio) * 0.94) : (0.06 + ratio * 0.94)
@@ -122,7 +122,7 @@ function BubbleMap({ dados, metrica, modo, tooltip, onHover }: BubbleMapProps) {
                   key={geo.rsmKey}
                   geography={geo}
                   fill={getFillMundo(numId)}
-                  stroke={isHovered ? 'rgba(255,255,255,0.6)' : 'rgba(255,255,255,0.08)'}
+                  stroke={isHovered ? 'rgba(255,255,255,0.6)' : 'var(--color-hairline)'}
                   strokeWidth={isHovered ? 1.0 : 0.3}
                   style={{ default: { outline: 'none' }, hover: { outline: 'none' }, pressed: { outline: 'none' } }}
                   onMouseEnter={() => alpha2 && onHover(alpha2)}
@@ -609,7 +609,7 @@ export function TelaTendencias({ dadosCampanha, geoRegioes, geoPaises, campanhas
 
           <ResponsiveContainer width="100%" height={240}>
             <LineChart data={dadosLinha} margin={{ top: 4, right: 24, left: 0, bottom: 0 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" />
+              <CartesianGrid strokeDasharray="3 3" stroke="var(--color-hairline)" />
               <XAxis dataKey="rotulo" tick={{ fontFamily: 'var(--font-body)', fontSize: 10, fill: 'var(--color-text-muted)' }} axisLine={false} tickLine={false} interval={Math.floor(dadosLinha.length / 8)} />
               <YAxis yAxisId="L" orientation="left"  tick={{ fontFamily: 'var(--font-body)', fontSize: 10, fill: 'var(--color-text-muted)' }} axisLine={false} tickLine={false} width={52} tickFormatter={v => v >= 1000 ? `R$${(v/1000).toFixed(0)}k` : `R$${Math.round(v)}`} />
               <YAxis yAxisId="R" orientation="right" tick={{ fontFamily: 'var(--font-body)', fontSize: 10, fill: 'var(--color-text-muted)' }} axisLine={false} tickLine={false} width={36} />
@@ -690,7 +690,7 @@ export function TelaTendencias({ dadosCampanha, geoRegioes, geoPaises, campanhas
                 return (
                   <div style={{ display: 'grid', gridTemplateColumns: 'repeat(7, 1fr)', gap: '6px' }}>
                     {medias.map((media, dia) => {
-                      if (media === null) return <div key={dia} style={{ height: '72px', borderRadius: '8px', backgroundColor: 'rgba(255,255,255,0.03)' }} />
+                      if (media === null) return <div key={dia} style={{ height: '72px', borderRadius: '8px', backgroundColor: 'var(--color-overlay-soft)' }} />
                       const bg = heatmapCor(media, min, max, hmInv)
                       const ratio = max > min ? (media - min) / (max - min) : 0
                       const textColor = ratio > 0.45 ? 'rgba(255,255,255,0.95)' : 'rgba(255,255,255,0.5)'
@@ -738,7 +738,7 @@ export function TelaTendencias({ dadosCampanha, geoRegioes, geoPaises, campanhas
                     {/* Células */}
                     <div style={{ display: 'grid', gridTemplateColumns: `repeat(${cols}, 1fr)`, gap: '6px' }}>
                       {mediasM.map(({ ym, media }, idx) => {
-                        if (media === null) return <div key={ym} style={{ height: '72px', borderRadius: '8px', backgroundColor: 'rgba(255,255,255,0.03)' }} />
+                        if (media === null) return <div key={ym} style={{ height: '72px', borderRadius: '8px', backgroundColor: 'var(--color-overlay-soft)' }} />
                         const bg = heatmapCor(media, min, max, hmInv)
                         const ratio = max > min ? (media - min) / (max - min) : 0
                         const textColor = ratio > 0.45 ? 'rgba(255,255,255,0.95)' : 'rgba(255,255,255,0.5)'
@@ -778,7 +778,7 @@ export function TelaTendencias({ dadosCampanha, geoRegioes, geoPaises, campanhas
                     // Custo (métrica invertida) = 0 é "sem compras", não "melhor
                     // célula grátis" — vira sem-dado, como no Dia★/Mês★
                     const val   = bruto !== null && !(hmInv && bruto === 0) ? bruto : null
-                    const bg    = val !== null ? heatmapCor(val, hmMin, hmMax, hmInv) : 'rgba(255,255,255,0.03)'
+                    const bg    = val !== null ? heatmapCor(val, hmMin, hmMax, hmInv) : 'var(--color-hairline)'
                     const ratio = hmMax > hmMin && val !== null ? (val - hmMin) / (hmMax - hmMin) : 0
                     const textColor = ratio > 0.5 ? 'rgba(255,255,255,0.95)' : 'rgba(255,255,255,0.45)'
                     return (

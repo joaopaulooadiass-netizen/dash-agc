@@ -510,7 +510,7 @@ export function AnaliseCriativos({
                     { label: 'Impressões',   valor: numK(criativoAtivo.impressoes),  cor: 'var(--color-text-secondary)' },
                     { label: 'CPM',          valor: criativoAtivo.cpm > 0 ? brl(criativoAtivo.cpm) : '—', cor: 'var(--color-text-secondary)' },
                   ].map(({ label, valor, cor }) => (
-                    <div key={label} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBlock: '0.3rem', borderBottom: '1px solid rgba(255,255,255,0.03)' }}>
+                    <div key={label} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', paddingBlock: '0.3rem', borderBottom: '1px solid var(--color-hairline)' }}>
                       <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.7rem', color: 'var(--color-text-muted)' }}>{label}</span>
                       <span style={{ fontFamily: 'var(--font-body)', fontSize: '0.75rem', fontWeight: 600, color: cor }}>{valor}</span>
                     </div>
@@ -573,7 +573,7 @@ export function AnaliseCriativos({
                 const ev = e as unknown as { activePayload?: { payload: CriativoMetricas }[] }
                 if (ev?.activePayload?.[0]?.payload) setSelecionado(ev.activePayload[0].payload.id)
               }}>
-                <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" />
+                <CartesianGrid strokeDasharray="3 3" stroke="var(--color-hairline)" />
                 <XAxis dataKey="__x" name={metricaXDef?.label} type="number" tick={{ fontFamily: 'var(--font-body)', fontSize: 10, fill: 'var(--color-text-muted)' }} axisLine={false} tickLine={false} tickFormatter={v => tickCompacto(metricaXDef, v as number)} label={{ value: metricaXDef?.label, position: 'insideBottom', offset: -4, fill: 'var(--color-text-muted)', fontSize: 10 }} />
                 <YAxis dataKey="__y" name={metricaYDef?.label} type="number" tick={{ fontFamily: 'var(--font-body)', fontSize: 10, fill: 'var(--color-text-muted)' }} axisLine={false} tickLine={false} tickFormatter={v => tickCompacto(metricaYDef, v as number)} width={56} label={{ value: metricaYDef?.label, angle: -90, position: 'insideLeft', offset: 12, fill: 'var(--color-text-muted)', fontSize: 10 }} />
                 <ZAxis range={[1, 1]} />
@@ -624,7 +624,7 @@ export function AnaliseCriativos({
                   {dadosFiltrados.map((d, i) => {
                     const ativo = d.id === idAtivo
                     return (
-                      <tr key={d.id} onClick={() => setSelecionado(d.id)} style={{ borderBottom: '1px solid rgba(255,255,255,0.03)', backgroundColor: ativo ? 'rgba(204,155,73,0.07)' : i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.012)', cursor: 'pointer' }}>
+                      <tr key={d.id} onClick={() => setSelecionado(d.id)} style={{ borderBottom: '1px solid var(--color-hairline)', backgroundColor: ativo ? 'rgba(204,155,73,0.07)' : i % 2 === 0 ? 'transparent' : 'var(--color-hairline)', cursor: 'pointer' }}>
                         <td style={{ padding: '0.45rem 0.75rem', whiteSpace: 'nowrap' }}>
                           <div style={{ display: 'flex', alignItems: 'center', gap: '0.55rem', minWidth: 0 }}>
                             {d.thumbUrl ? (

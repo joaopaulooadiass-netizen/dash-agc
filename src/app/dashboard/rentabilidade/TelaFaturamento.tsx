@@ -557,7 +557,7 @@ export function TelaFaturamento({ metricas, metaFalhou = false, configInicial, d
           <p style={S.cardTitulo}>Receita vs Investimento</p>
           <ResponsiveContainer width="100%" height={220}>
             <LineChart data={receitaDia} margin={{ top: 4, right: 12, left: 0, bottom: 0 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" />
+              <CartesianGrid strokeDasharray="3 3" stroke="var(--color-hairline)" />
               <XAxis dataKey="data" tick={{ fontFamily: 'var(--font-body)', fontSize: 10, fill: 'var(--color-text-muted)' }} interval="preserveStartEnd" />
               <YAxis tick={{ fontFamily: 'var(--font-body)', fontSize: 10, fill: 'var(--color-text-muted)' }} tickFormatter={v => { const n = v as number; return n >= 1000 ? `R$${(n / 1000).toFixed(0)}k` : `R$${Math.round(n)}` }} width={52} />
               <Tooltip
@@ -609,7 +609,7 @@ export function TelaFaturamento({ metricas, metaFalhou = false, configInicial, d
               </thead>
               <tbody>
                 {utmDados.map((row, i) => (
-                  <tr key={i} style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
+                  <tr key={i} style={{ borderBottom: '1px solid var(--color-hairline)' }}>
                     <td style={{ padding: '0.45rem 0.5rem', color: 'var(--color-text-primary)', maxWidth: '160px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }} title={row.nome}>{row.nome}</td>
                     <td style={{ padding: '0.45rem 0.5rem', textAlign: 'right', color: 'var(--color-text-primary)', fontWeight: 600 }}>{brl(row.receita)}</td>
                     <td style={{ padding: '0.45rem 0.5rem', textAlign: 'right', color: 'var(--color-text-secondary)' }}>{row.vendas}</td>
@@ -672,7 +672,7 @@ export function TelaFaturamento({ metricas, metaFalhou = false, configInicial, d
               </thead>
               <tbody>
                 {produtosDados.map(row => (
-                  <tr key={row.nome} style={{ borderBottom: '1px solid rgba(255,255,255,0.04)' }}>
+                  <tr key={row.nome} style={{ borderBottom: '1px solid var(--color-hairline)' }}>
                     <td style={{ padding: '0.45rem 0.5rem', color: 'var(--color-text-primary)', maxWidth: '280px' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', overflow: 'hidden' }}>
                         <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: row.cor, flexShrink: 0 }} />

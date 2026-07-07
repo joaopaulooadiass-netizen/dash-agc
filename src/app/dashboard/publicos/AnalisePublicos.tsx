@@ -272,7 +272,7 @@ function TabelaItens({
           <tbody>
             {sorted.map((d, i) => {
               const ativo = selecionado === d.id
-              const bg = ativo ? 'rgba(204,155,73,0.08)' : i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.018)'
+              const bg = ativo ? 'rgba(204,155,73,0.08)' : i % 2 === 0 ? 'transparent' : 'var(--color-hairline)'
               return (
                 <tr key={d.id} onClick={() => onSelect(d.id)} style={{ borderBottom: '1px solid var(--color-border-subtle)', backgroundColor: bg, cursor: 'pointer', transition: 'background 0.1s' }}>
                   <td style={{ padding: '0.5rem 0.75rem', fontFamily: 'var(--font-body)', fontSize: '0.82rem', color: 'var(--color-text-primary)', maxWidth: '260px' }}>
@@ -548,7 +548,7 @@ export function AnalisePublicos({
 
         <ResponsiveContainer width="100%" height={380}>
           <ScatterChart margin={{ top: 10, right: 20, bottom: 30, left: 10 }}>
-            <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" />
+            <CartesianGrid strokeDasharray="3 3" stroke="var(--color-hairline)" />
             <XAxis
               type="number" dataKey="x" name={metricaXDef.label}
               label={{ value: metricaXDef.label, position: 'insideBottom', offset: -12, fill: 'var(--color-text-muted)', fontFamily: 'var(--font-body)', fontSize: 11 }}

@@ -71,16 +71,16 @@ function KpiCard({
   return (
     <div style={{
       flex: 1,
-      backgroundColor: destaque ? '#0a0f16' : 'var(--color-bg-secondary)',
-      borderRight: '1px solid rgba(255,255,255,0.06)',
+      backgroundColor: destaque ? 'var(--color-ink)' : 'var(--color-bg-secondary)',
+      borderRight: '1px solid var(--color-hairline)',
       borderBottom: sinal !== 'neutro' ? `2px solid ${SINAL_COLOR[sinal]}` : '2px solid transparent',
       padding: '1rem 1.5rem',
       display: 'flex', flexDirection: 'column', gap: '0.3rem',
     }}>
-      <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.72rem', color: 'var(--color-text-muted)', textTransform: 'capitalize' }}>
+      <p style={{ fontFamily: 'var(--font-body)', fontSize: '0.72rem', color: destaque ? 'rgba(253,250,243,0.65)' : 'var(--color-text-muted)', textTransform: 'capitalize' }}>
         {label}
       </p>
-      <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.6rem', fontWeight: 700, color: 'var(--color-text-primary)', lineHeight: 1 }}>
+      <p style={{ fontFamily: 'var(--font-body)', fontSize: '1.6rem', fontWeight: 700, color: destaque ? 'var(--color-cream)' : 'var(--color-text-primary)', lineHeight: 1 }}>
         {valor}
       </p>
       {comparacao && (
@@ -139,7 +139,7 @@ function FunilLinha({ label, valor, taxa, taxaLabel, cor, topo, cpm, cpmVal, isL
   // mostrando o tamanho da queda sem apagar as etapas menores do mapa.
   const w = topo > 1 && valor > 0 ? (Math.log(valor + 1) / Math.log(topo + 1)) * 100 : 0
   return (
-    <div style={{ paddingBottom: isLast ? 0 : '0.6rem', borderBottom: isLast ? 'none' : '1px solid rgba(255,255,255,0.04)' }}>
+    <div style={{ paddingBottom: isLast ? 0 : '0.6rem', borderBottom: isLast ? 'none' : '1px solid var(--color-hairline)' }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
         <div style={{ flex: '0 0 130px', fontFamily: 'var(--font-body)', fontSize: '0.72rem', color: 'var(--color-text-muted)', whiteSpace: 'nowrap' }}>{label}</div>
         <div style={{ flex: 1, height: '6px', backgroundColor: 'var(--color-bg-tertiary)', borderRadius: 'var(--radius-pill)', minWidth: 0 }}>
@@ -224,7 +224,7 @@ function GraficoCard({ dias, dados }: { dias: number; dados: Record<string, numb
               </linearGradient>
             ))}
           </defs>
-          <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.04)" />
+          <CartesianGrid strokeDasharray="3 3" stroke="var(--color-hairline)" />
           <XAxis dataKey="data" tick={{ fontFamily: 'var(--font-body)', fontSize: 10, fill: 'var(--color-text-muted)' }} axisLine={false} tickLine={false} interval="preserveStartEnd" />
           {/* Eixo esquerdo — R$ (Investimento, Receita) */}
           <YAxis yAxisId="brl" tick={{ fontFamily: 'var(--font-body)', fontSize: 10, fill: 'var(--color-text-muted)' }} axisLine={false} tickLine={false} width={55} tickFormatter={v => { const n = v as number; return n >= 1000 ? `R$${(n/1000).toFixed(0)}k` : `R$${Math.round(n)}` }} />
@@ -383,7 +383,7 @@ function FunilCard({
       })}
 
       {/* Resumo */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem', paddingTop: '0.25rem', borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem', paddingTop: '0.25rem', borderTop: '1px solid var(--color-hairline)' }}>
         {/* Se Page View É a última etapa, "Conv. da Página" seria PV÷PV = 100% (sem sentido) */}
         {hasPV && ultima !== 'pageView' && (
           <div style={{ padding: '0.5rem 0.65rem', backgroundColor: 'var(--color-bg-secondary)', borderRadius: 'var(--radius-md)' }}>
@@ -554,7 +554,7 @@ export function VisaoGeral({ campanhas, estrutura, metricasDiarias, metaFalhou =
       </div>
 
       {/* ── KPIs ──────────────────────────────────────────────────── */}
-      <div style={{ display: 'flex', borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
+      <div style={{ display: 'flex', borderBottom: '1px solid var(--color-hairline)' }}>
         <KpiCard
           label={labelMetrica('investimento')} valor={brl(totalInv)}
           comparacao={delta(totalInv, invAnt)}

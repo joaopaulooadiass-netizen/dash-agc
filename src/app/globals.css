@@ -12,31 +12,33 @@
   --color-gold-bright:#D9B165; /* dourado claro — hover, marquee */
 
   /* Aliases legados (identidade anterior) — mantidos para compatibilidade */
-  --color-lado-oculto:     #071527; /* → navy (era azul-noite) */
-  --color-ponto-conversao: #CC9B49; /* → dourado (era vermelho CTA) */
-  --color-revelacao:       #FDFAF3; /* → creme (era branco) */
+  --color-lado-oculto:     #031225;              /* → navy (era azul-noite) */
+  --color-ponto-conversao: var(--color-accent);  /* → dourado (era vermelho CTA) */
+  --color-revelacao:       #FDFAF3;              /* → creme (era branco) */
 
-  /* Superfícies de fundo (dark por padrão) */
-  --color-bg-primary:     #071527; /* tela principal */
-  --color-bg-secondary:   #0C1D33; /* sidebar, nav */
-  --color-bg-tertiary:    #16283F; /* hover states */
-  --color-bg-card:        #0F2036; /* cards, painéis */
+  /* Superfícies de fundo (creme por padrão — identidade Atomic Growth) */
+  --color-bg-primary:     #FDFAF3; /* tela principal */
+  --color-bg-secondary:   #F4EEE4; /* sidebar, nav */
+  --color-bg-tertiary:    #ECE9E1; /* hover states */
+  --color-bg-card:        #FFFFFF; /* cards, painéis */
 
   /* Texto */
-  --color-text-primary:   #FDFAF3;
-  --color-text-secondary: #C5CCD4;
-  --color-text-muted:     #7C8798;
-  --color-text-tertiary:  #94A0AE;
+  --color-text-primary:   #031225;
+  --color-text-secondary: #203147;
+  --color-text-muted:     #596571;
+  --color-text-tertiary:  #7A8694;
 
   /* Bordas */
-  --color-border-subtle:  #1B2C42;
-  --color-border-default: #24374F;
-  --color-border-strong:  #354962;
+  --color-border-subtle:  #ECE6DA;
+  --color-border-default: #E2DDD5;
+  --color-border-strong:  #C9BFAC;
+  --color-hairline:       rgba(3, 18, 37, 0.08);  /* separadores finos */
+  --color-overlay-soft:   rgba(3, 18, 37, 0.04);  /* fundos sutis */
 
   /* Acento / destaque — dourado */
-  --color-accent:         #CC9B49;
-  --color-accent-hover:   #D9B165;
-  --color-accent-muted:   rgba(204, 155, 73, 0.15);
+  --color-accent:         #A16F25;
+  --color-accent-hover:   #CC9B49;
+  --color-accent-muted:   rgba(161, 111, 37, 0.12);
 
   /* Semáforo de performance */
   --color-signal-green:   #22C55E; /* bom — acima da meta */
@@ -80,6 +82,8 @@
     --color-border-subtle:  #ECE6DA;
     --color-border-default: #E2DDD5;
     --color-border-strong:  #C9BFAC;
+    --color-hairline:       rgba(3, 18, 37, 0.08);
+    --color-overlay-soft:   rgba(3, 18, 37, 0.04);
 
     --color-accent:         #A16F25;
     --color-accent-hover:   #CC9B49;

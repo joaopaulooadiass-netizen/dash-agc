@@ -649,7 +649,7 @@ export function TabelaCampanhas({ campanhas, estrutura, isAdmin = false }: Props
                         style={{
                           display: 'flex', alignItems: 'center', gap: '0.5rem',
                           padding: '0.35rem 0.5rem',
-                          backgroundColor: isOver ? 'rgba(204,155,73,0.15)' : isDragging ? 'rgba(255,255,255,0.05)' : 'var(--color-bg-card)',
+                          backgroundColor: isOver ? 'rgba(204,155,73,0.15)' : isDragging ? 'var(--color-hairline)' : 'var(--color-bg-card)',
                           border: `1px solid ${isOver ? 'var(--color-ponto-conversao)' : 'var(--color-border-subtle)'}`,
                           borderRadius: 'var(--radius-sm)',
                           cursor: 'grab',
@@ -761,7 +761,7 @@ export function TabelaCampanhas({ campanhas, estrutura, isAdmin = false }: Props
             <tbody>
               {/* Linha de dados */}
               {dados.map((c, i) => {
-                const bg = i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.018)'
+                const bg = i % 2 === 0 ? 'transparent' : 'var(--color-hairline)'
                 return (
                   <tr key={c.id} style={{ borderBottom: '1px solid var(--color-border-subtle)', backgroundColor: bg }}>
                     {cols.map(col => celula(c, col.key, col.id))}

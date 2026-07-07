@@ -16,6 +16,8 @@ const DARK: Record<string, string> = {
   '--color-border-subtle':  '#1B2C42',
   '--color-border-default': '#24374F',
   '--color-border-strong':  '#354962',
+  '--color-hairline':       'rgba(253,250,243,0.06)',
+  '--color-overlay-soft':   'rgba(253,250,243,0.03)',
   '--color-accent':         '#CC9B49',
   '--color-accent-hover':   '#D9B165',
   '--color-accent-muted':   'rgba(204,155,73,0.15)',
@@ -33,6 +35,8 @@ const LIGHT: Record<string, string> = {
   '--color-border-subtle':  '#ECE6DA',
   '--color-border-default': '#E2DDD5',
   '--color-border-strong':  '#C9BFAC',
+  '--color-hairline':       'rgba(3,18,37,0.08)',
+  '--color-overlay-soft':   'rgba(3,18,37,0.04)',
   '--color-accent':         '#A16F25',
   '--color-accent-hover':   '#CC9B49',
   '--color-accent-muted':   'rgba(161,111,37,0.12)',
@@ -53,14 +57,14 @@ interface ThemeContextValue {
 const ThemeContext = createContext<ThemeContextValue>({ theme: 'dark', toggle: () => {} })
 
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>('dark')
+  const [theme, setTheme] = useState<Theme>('light')
 
   useEffect(() => {
-    // Modo claro DESATIVADO por ora — há dezenas de cores/bordas hardcoded que o
-    // quebram (ver docs/divida-tecnica-tema.md). O ThemeContext e os mapas
-    // DARK/LIGHT ficam prontos pra reativar: basta restaurar a leitura do
-    // localStorage e religar os toggles na Sidebar e em Configurações.
-    applyTheme('dark')
+    // Tema claro (creme) é o padrão — identidade principal da Atomic Growth.
+    const saved = localStorage.getItem('theme') as Theme | null
+    const initial: Theme = saved === 'dark' ? 'dark' : 'light'
+    setTheme(initial)
+    applyTheme(initial)
   }, [])
 
   function toggle() {

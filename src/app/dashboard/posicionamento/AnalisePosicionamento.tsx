@@ -787,7 +787,7 @@ export function AnalisePosicionamento({
 
               <ResponsiveContainer width="100%" height={300}>
                 <LineChart data={serieFinal} margin={{ top: 5, right: 8, bottom: 0, left: 0 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="rgba(255,255,255,0.05)" vertical={false} />
+                  <CartesianGrid strokeDasharray="3 3" stroke="var(--color-hairline)" vertical={false} />
                   <XAxis
                     dataKey="rotulo"
                     tick={{ fill: 'var(--color-text-muted)', fontFamily: 'var(--font-body)', fontSize: 11 }}
@@ -895,7 +895,7 @@ export function AnalisePosicionamento({
                       const melhora = l.delta !== null && (metrica.invertido ? l.delta < 0 : l.delta > 0)
                       const estavel = l.delta !== null && Math.abs(l.delta) < 1
                       return (
-                        <tr key={l.chave} style={{ borderBottom: '1px solid var(--color-border-subtle)', backgroundColor: i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.018)' }}>
+                        <tr key={l.chave} style={{ borderBottom: '1px solid var(--color-border-subtle)', backgroundColor: i % 2 === 0 ? 'transparent' : 'var(--color-hairline)' }}>
                           <td style={{ padding: '0.5rem 0.9rem', fontFamily: 'var(--font-body)', fontSize: '0.8rem', fontWeight: 600, color: 'var(--color-text-primary)', whiteSpace: 'nowrap' }}>
                             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                               <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: l.cor, flexShrink: 0 }} />
@@ -954,7 +954,7 @@ export function AnalisePosicionamento({
                 </thead>
                 <tbody>
                   {grupos.map((g, i) => (
-                    <tr key={g.chave} style={{ borderBottom: '1px solid var(--color-border-subtle)', backgroundColor: i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.018)' }}>
+                    <tr key={g.chave} style={{ borderBottom: '1px solid var(--color-border-subtle)', backgroundColor: i % 2 === 0 ? 'transparent' : 'var(--color-hairline)' }}>
                       <td style={{ padding: '0.55rem 0.9rem', fontFamily: 'var(--font-body)', fontSize: '0.8rem', fontWeight: 600, color: 'var(--color-text-primary)', whiteSpace: 'nowrap' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                           <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: g.cor, flexShrink: 0 }} />
@@ -1031,7 +1031,7 @@ export function AnalisePosicionamento({
                 </thead>
                 <tbody>
                   {tabelaOrdenada.map((l, i) => (
-                    <tr key={l.chave} style={{ borderBottom: '1px solid var(--color-border-subtle)', backgroundColor: i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.018)' }}>
+                    <tr key={l.chave} style={{ borderBottom: '1px solid var(--color-border-subtle)', backgroundColor: i % 2 === 0 ? 'transparent' : 'var(--color-hairline)' }}>
                       <td style={{ padding: '0.5rem 0.9rem', fontFamily: 'var(--font-body)', fontSize: '0.8rem', color: 'var(--color-text-primary)', whiteSpace: 'nowrap' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                           <span style={{ width: '8px', height: '8px', borderRadius: '50%', backgroundColor: PLAT_COR[l.plataforma] ?? 'var(--color-text-muted)', flexShrink: 0 }} />

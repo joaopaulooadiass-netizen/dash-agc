@@ -41,14 +41,16 @@ export function Sidebar() {
     }}>
       {/* Logo */}
       <div style={{ padding: '1rem 1.25rem 1.25rem', borderBottom: '1px solid var(--color-border-subtle)', display: 'flex', alignItems: 'center', gap: '0.65rem' }}>
-        <Image
-          src="/brand/logo.png"
-          alt="Atomic Growth"
-          width={40}
-          height={40}
-          style={{ width: '40px', height: '40px', objectFit: 'contain', flexShrink: 0 }}
-          priority
-        />
+        <span style={{ width: '40px', height: '40px', borderRadius: '50%', backgroundColor: 'var(--color-ink)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+          <Image
+            src="/brand/logo.png"
+            alt="Atomic Growth"
+            width={40}
+            height={40}
+            style={{ width: '40px', height: '40px', objectFit: 'contain' }}
+            priority
+          />
+        </span>
         <div style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.15 }}>
           <span style={{ fontFamily: 'var(--font-display)', fontSize: '1.05rem', fontWeight: 600, color: 'var(--color-text-primary)', letterSpacing: '0.01em' }}>
             Atomic Growth
@@ -100,7 +102,7 @@ export function Sidebar() {
           borderLeft: activeConfig ? '2px solid var(--color-ponto-conversao)' : '2px solid transparent',
           transition: 'all 0.15s',
         }}>
-          <IconSettings color={activeConfig ? 'white' : 'var(--color-text-muted)'} />
+          <IconSettings color={activeConfig ? 'var(--color-text-primary)' : 'var(--color-text-muted)'} />
           Configurações
         </Link>
       </div>

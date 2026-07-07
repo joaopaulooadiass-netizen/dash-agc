@@ -648,7 +648,7 @@ const slice = useMemo(() => {
                         style={{
                           display: 'flex', alignItems: 'center', gap: '0.5rem',
                           padding: '0.35rem 0.5rem',
-                          backgroundColor: isOver ? 'rgba(204,155,73,0.15)' : isDragging ? 'rgba(255,255,255,0.05)' : 'var(--color-bg-card)',
+                          backgroundColor: isOver ? 'rgba(204,155,73,0.15)' : isDragging ? 'var(--color-hairline)' : 'var(--color-bg-card)',
                           border: `1px solid ${isOver ? 'var(--color-ponto-conversao)' : 'var(--color-border-subtle)'}`,
                           borderRadius: 'var(--radius-sm)',
                           cursor: 'grab',
@@ -770,7 +770,7 @@ const slice = useMemo(() => {
                 // movia o selo "HOJE" pra primeira linha da ordenação. Se hoje
                 // ainda não tem dado, nenhuma linha ganha o selo (honesto).
                 const isHoje = agrup === 'diario' && l.dataRef === hoje()
-                const bg = isHoje ? 'rgba(204,155,73,0.07)' : i % 2 === 0 ? 'transparent' : 'rgba(255,255,255,0.018)'
+                const bg = isHoje ? 'rgba(204,155,73,0.07)' : i % 2 === 0 ? 'transparent' : 'var(--color-hairline)'
                 return (
                   <tr key={`${l.dataRef}-${i}`} style={{ borderBottom: '1px solid var(--color-border-subtle)', backgroundColor: bg }}>
                     <td style={{ padding: '0.55rem 0.75rem', fontFamily: 'var(--font-body)', fontSize: '0.84rem', color: isHoje ? 'var(--color-text-primary)' : 'var(--color-text-secondary)', fontWeight: isHoje ? 700 : 400, whiteSpace: 'nowrap' }}>
