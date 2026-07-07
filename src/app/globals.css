@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+/* ─── DESIGN TOKENS — ATOMIC GROWTH (Líder de Ecossistema) ───────────────── */
+@theme {
+  /* Cores institucionais da marca */
+  --color-ink:        #031225; /* navy profundo — texto/fundo escuro */
+  --color-ink-deep:   #000717; /* navy quase preto */
+  --color-navy-soft:  #203147; /* navy suave */
+  --color-cream:      #FDFAF3; /* creme — fundo claro */
+  --color-gold:       #CC9B49; /* dourado — ação, destaque, CTA */
+  --color-gold-deep:  #A16F25; /* dourado escuro — texto sobre claro */
+  --color-gold-bright:#D9B165; /* dourado claro — hover, marquee */
+
+  /* Superfícies de fundo (dark por padrão) */
+  --color-bg-primary:     #071527; /* tela principal */
+  --color-bg-secondary:   #0C1D33; /* sidebar, nav */
+  --color-bg-tertiary:    #16283F; /* hover states */
+  --color-bg-card:        #0F2036; /* cards, painéis */
+
+  /* Texto */
+  --color-text-primary:   #FDFAF3;
+  --color-text-secondary: #C5CCD4;
+  --color-text-muted:     #7C8798;
+  --color-text-tertiary:  #94A0AE;
+
+  /* Bordas */
+  --color-border-subtle:  #1B2C42;
+  --color-border-default: #24374F;
+  --color-border-strong:  #354962;
+
+  /* Acento / destaque — dourado */
+  --color-accent:         #CC9B49;
+  --color-accent-hover:   #D9B165;
+  --color-accent-muted:   rgba(204, 155, 73, 0.15);
+
+  /* Semáforo de performance */
+  --color-signal-green:   #22C55E; /* bom — acima da meta */
+  --color-signal-yellow:  #EAB308; /* atenção — na meta */
+  --color-signal-red:     #EF4444; /* alerta — abaixo da meta */
+  --color-signal-neutral: #64748B; /* sem dados / inativo */
+
+  /* Fontes — Fraunces (display serif) + Century Gothic/Montserrat (corpo) */
+  --font-display: var(--font-fraunces), "Fraunces", ui-serif, Georgia, serif;
+  --font-body:    "Century Gothic", "Avenir Next", Avenir, var(--font-montserrat), Montserrat, ui-sans-serif, system-ui, sans-serif;
+
+  /* Espaçamentos Fibonacci */
+  --spacing-fib-1:  4px;
+  --spacing-fib-2:  8px;
+  --spacing-fib-3:  12px;
+  --spacing-fib-5:  20px;
+  --spacing-fib-8:  32px;
+  --spacing-fib-13: 52px;
+  --spacing-fib-21: 84px;
+
+  /* Border radius */
+  --radius-sm:   6px;
+  --radius-md:   10px; /* 0.625rem — padrão do design system */
+  --radius-lg:   14px;
+  --radius-pill: 999px;
+}
+
+/* ─── MODO CLARO (creme — identidade principal da landing) ────────────────── */
+@layer base {
+  [data-theme="light"] {
+    --color-bg-primary:     #FDFAF3;
+    --color-bg-secondary:   #F4EEE4;
+    --color-bg-tertiary:    #ECE9E1;
+    --color-bg-card:        #FFFFFF;
+
+    --color-text-primary:   #031225;
+    --color-text-secondary: #203147;
+    --color-text-muted:     #596571;
+    --color-text-tertiary:  #7A8694;
+
+    --color-border-subtle:  #ECE6DA;
+    --color-border-default: #E2DDD5;
+    --color-border-strong:  #C9BFAC;
+
+    --color-accent:         #A16F25;
+    --color-accent-hover:   #CC9B49;
+    --color-accent-muted:   rgba(161, 111, 37, 0.12);
+  }
+}
+
+/* ─── RESET & BASE ────────────────────────────────────────────────────────── */
+:root {
+  --background: var(--color-bg-primary);
+  --foreground: var(--color-text-primary);
+}
+
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* ─── SCROLLBAR ───────────────────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 6px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(128,128,128,0.2); border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(128,128,128,0.35); }
+::-webkit-scrollbar-corner { background: transparent; }
