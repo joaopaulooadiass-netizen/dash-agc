@@ -1,4 +1,4 @@
-import { supabaseServer } from './server'
+import { supabaseServer, supabaseConfigurado } from './server'
 import type { MetaAction } from '@/lib/meta/actions'
 import { subDias } from '@/lib/utils/data'
 
@@ -33,6 +33,8 @@ export async function readCache(
   since: string,
   until: string,
 ): Promise<CacheRow[]> {
+  if (!supabaseConfigurado()) return []
+
   const { data, error } = await supabaseServer
     .from('meta_insights_cache')
     .select('*')
@@ -56,6 +58,8 @@ export async function getDatesInCache(
   since: string,
   until: string,
 ): Promise<Set<string>> {
+  if (!supabaseConfigurado()) return new Set()
+
   const { data, error } = await supabaseServer
     .from('meta_insights_cache')
     .select('date_start')
@@ -75,6 +79,10 @@ export async function getDatesInCache(
 
 export async function upsertCache(rows: CacheRow[]): Promise<void> {
   if (rows.length === 0) return
+  if (!supabaseConfigurado()) {
+    console.warn('[meta-cache] Supabase não configurado — cache desativado, nada gravado')
+    return
+  }
 
   const { error } = await supabaseServer
     .from('meta_insights_cache')
